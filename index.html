@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquidation Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Futures Liquidation Calculator</h1>
+
+        <!-- Dark Mode Toggle -->
+        <div class="dark-mode-toggle">
+            <span>Dark Mode</span>
+            <label class="switch">
+                <input type="checkbox" id="toggleDarkMode">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <!-- Long/Short Selection -->
+        <div class="position-buttons">
+            <button id="longBtn" class="position-btn long">Long</button>
+            <button id="shortBtn" class="position-btn short">Short</button>
+        </div>
+
+        <!-- Live Crypto Prices -->
+        <div class="price-buttons">
+            <button class="price-btn btc" data-symbol="BTCUSDT">BTC</button>
+            <button class="price-btn eth" data-symbol="ETHUSDT">ETH</button>
+            <button class="price-btn xrp" data-symbol="XRPUSDT">XRP</button>
+        </div>
+
+        <div class="input-group">
+            <label>Entry Price ($):</label>
+            <input type="number" id="entryPrice" step="0.0001">
+        </div>
+
+        <!-- Leverage Input and Slider -->
+        <div class="leverage-container">
+            <label>Leverage:</label>
+            <input type="number" id="leverageInput" min="1" max="125" step="1" value="10">
+            <input type="range" id="leverageSlider" min="1" max="125" step="1" list="leveragePoints">
+            <select id="marginMode">
+                <option value="isolated">Isolated</option>
+                <option value="cross">Cross</option>
+            </select>
+        </div>
+
+        <datalist id="leveragePoints">
+            <option value="1"></option>
+            <option value="25"></option>
+            <option value="50"></option>
+            <option value="75"></option>
+            <option value="100"></option>
+            <option value="125"></option>
+        </datalist>
+
+        <div class="input-group">
+            <label>Margin Used ($):</label>
+            <input type="number" id="margin" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label>Wallet Balance ($):</label>
+            <input type="number" id="walletBalance" step="0.01">
+        </div>
+
+        <button id="calculate">Calculate</button>
+        <h2 id="result"></h2>
+
+        <div class="footer">
+            <p>Made by Jano</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
